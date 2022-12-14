@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="productAddCss.css">
+</head>
+<body>
+<div id="productAddMain">
+    <div>
+        <div class="productAddText">
+            <h1>Product List</h1>
+            <div class ="mainProductAdd">
+                <button type=submit>Save</button>
+            </div>
+            <div id="cancelProductAdd">
+                <button> <a href="main.html">Cancel</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Product add form -->
+<form id="product_form">
+    <div class="inputField">
+    <form action="/#">
+        <label for="SKU">SKU:</label>
+        <input type="text" id="SKU" name="SKU"><br><br>
+        <label for="pname">Name:</label>
+        <input type="text" id="pname" name="pname"><br><br>
+        <label for="Price">Name:</label>
+        <input type="number" id="Price" name="Price"><br><br>
+    </form>
+    </div>
+
+    <label for="productType">Choose a product type:</label>
+
+    <select name="productType" id="productType">
+        <option>Type Switcher</option>
+        <option value="DVD">DVD</option>
+        <option value="Book">Book</option>
+        <option value="Furniture">Furniture</option>
+    </select>
+
+
+</form>
+
+</body>
+</html>

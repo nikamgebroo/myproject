@@ -1,0 +1,37 @@
+.mainText{
+    margin-top: 10px;
+    margin-left: 10px;
+    border-bottom: 3px solid grey;
+}
+.mainText h1 {
+    display: inline-block;
+}
+.mainProductAdd{
+    display: inline-block;
+    margin-left: 80%
+}
+#delete-product-btn{
+    display: inline-block;
+    margin-left: 20px;
+}
+.mainText button{
+
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+
+}
+table {
+    margin-left: 5%;
+    width: 90%;
+}
+td {
+    width: 18%;
+    position: relative;
+}
+td:after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+}

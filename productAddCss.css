@@ -1,0 +1,32 @@
+#productAddMain{
+    margin-top: 10px;
+    margin-left: 10px;
+    border-bottom: 3px solid grey;
+}
+.productAddText h1 {
+    display: inline-block;
+}
+.mainProductAdd{
+    display: inline-block;
+    margin-left: 80%
+}
+#cancelProductAdd{
+    display: inline-block;
+    margin-left: 20px;
+}
+#productAddMain button{
+
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+
+}
+.inputField{
+    margin-top: 30px;
+}
+.inputField input{
+    margin-left: 30px;
+}
+/*
+Switcher
+ */
