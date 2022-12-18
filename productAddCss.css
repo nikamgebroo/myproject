@@ -30,3 +30,9 @@
 /*
 Switcher
  */
+#Furniture{
+    display: block;
+}
+#product_form #Furniture{
+    display: block;
+}
