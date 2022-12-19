@@ -14,7 +14,7 @@
                 <button type=submit>Save</button>
             </div>
             <div id="cancelProductAdd">
-                <button> <a href="main.html">Cancel</a></button>
+                <button> <a href="main.php">Cancel</a></button>
             </div>
         </div>
     </div>
@@ -27,10 +27,10 @@
         <div class="inputField">
         <label for="SKU">SKU:</label>
         <input type="text" id="SKU" name="SKU"><br><br>
-        <label for="pname">Name:</label>
-        <input type="text" id="pname" name="pname"><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
         <label for="Price">Price ($):</label>
-        <input type="number" id="Price" name="Price"><br><br>
+        <input type="number" id="price" name="price"><br><br>
         </div>
 
         <!-- Switcher -->
