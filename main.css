@@ -22,16 +22,17 @@
     text-decoration: none;
 
 }
-table {
-    margin-left: 5%;
-    width: 90%;
+.checkboxes .card{
+    width: 18rem;
+    display: inline-block;
+
 }
-td {
-    width: 18%;
-    position: relative;
+.checkboxes .delete-checkbox{
+    margin-left: 17rem;
 }
-td:after {
-    content: '';
-    display: block;
-    margin-top: 100%;
+.checkboxes {
+    margin-left: 20px;
+}
+.checkboxes .card-body{
+    text-align: center;
 }

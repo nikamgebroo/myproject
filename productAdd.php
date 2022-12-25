@@ -38,7 +38,7 @@
             <label for="product" id="product">Type Switcher: </label>
 
             <select name="productType" id="productType">
-                <option>Type Switcher</option>
+                <option value="Switcher">Type Switcher</option>
                 <option value="DVD">DVD</option>
                 <option value="Book">Book</option>
                 <option value="Furniture">Furniture</option>
@@ -64,13 +64,23 @@
                 $('#productType').on('change',function(){
                     if( $(this).val()==="DVD"){
                         $("#DVD").show()
-
+                        $("#Book").hide();
+                        $("#Furniture").hide();
                     }
                     if( $(this).val()==="Book"){
                         $("#Book").show()
+                        $("#DVD").hide();
+                        $("#Furniture").hide();
                     }
                     if( $(this).val()==="Furniture"){
                         $("#Furniture").show()
+                        $("#Book").hide();
+                        $("#DVD").hide();
+                    }
+                    if( $(this).val()==="Switcher"){
+                        $("#Furniture").hide()
+                        $("#Book").hide();
+                        $("#DVD").hide();
                     }
                 });
             </script>

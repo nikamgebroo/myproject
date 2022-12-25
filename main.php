@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,17 +21,18 @@
 
 </div>
 <div class="checkboxes">
-    <table>
 
-        <tr>
-            <td><input type="checkbox" class="delete-checkbox" /></td>
-            <td><input type="checkbox" class="delete-checkbox" /></td>
-            <td><input type="checkbox" class="delete-checkbox" /></td>
-            <td><input type="checkbox" class="delete-checkbox" /></td>
-            <td><input type="checkbox" class="delete-checkbox" /></td>
-        </tr>
+    <div class="card">
+        <input type="checkbox" class="delete-checkbox" />
+        <div class="card-body">
+         <h5>SKU</h5>
+            <h5>Product name</h5>
+            <h5>Price</h5>
+            <h5>measurement</h5>
+        </div>
+    </div>
 
-        </table>
+
 </div>
 </body>
 </html>
