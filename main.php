@@ -1,4 +1,11 @@
+<?php
+$pdo = new PDO('mysql:host=localhost;port=3306;dbname=products', 'root', '');
+$pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$statement = $pdo->prepare('SELECT * FROM products_table ORDER BY SKU DESC' );
+$statement->execute();
+$products =$statement->fetchALL(PDO::FETCH_ASSOC);
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,17 +28,17 @@
 
 </div>
 <div class="checkboxes">
-
+    <?php foreach ($products as $i=> $product) { ?>
     <div class="card">
         <input type="checkbox" class="delete-checkbox" />
         <div class="card-body">
-         <h5>SKU</h5>
-            <h5>Product name</h5>
-            <h5>Price</h5>
-            <h5>measurement</h5>
+         <h5><?php echo $product['SKU']?></h5>
+            <h5><?php echo $product['name'] ?></h5>
+            <h5><?php echo $product['price'] ?></h5>
+            <h5><?php echo $product['attribute_value_id'] ?></h5>
         </div>
     </div>
-
+<?php } ?>
 
 </div>
 </body>

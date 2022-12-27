@@ -25,14 +25,16 @@
 .checkboxes .card{
     width: 18rem;
     display: inline-block;
-
+    border: 2px;
+    outline-style: solid;
+    outline-color: #696969;
+    margin-top: 30px;
+    margin-left: 40px;
 }
 .checkboxes .delete-checkbox{
     margin-left: 17rem;
 }
-.checkboxes {
-    margin-left: 20px;
-}
+
 .checkboxes .card-body{
     text-align: center;
 }
