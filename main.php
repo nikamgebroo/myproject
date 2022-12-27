@@ -22,7 +22,7 @@ $products =$statement->fetchALL(PDO::FETCH_ASSOC);
         <button><a href="productAdd.php">ADD</a></button>
     </div>
     <div id="delete-product-btn">
-        <button> <a href="#">Mass delete</a></button>
+        <button id="delete_button">Mass delete</button>
     </div>
 </div>
 
