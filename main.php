@@ -43,14 +43,18 @@ $products =$statement->fetchALL(PDO::FETCH_ASSOC);
     </div>
     </form>
 </div>
-<?php if(isset($_POST["submit1"])){
-    $box=$_POST['num'];
-    foreach ($box as $key => $val) {
-        $statement = $pdo->prepare('DELETE FROM products_table WHERE id= :id ' );
-        $statement->bindValue(':id', $val);
-        $statement->execute();
-        header('Location: main.php'); exit();
+<?php
+if(isset($_POST["submit1"])) {
+    $deleteProduct = ($_POST['num']);
+    foreach ($deleteProduct as $id) {
+
+        $sql = "DELETE FROM products_table WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id]);
+         header('location: main.php');
     }
-} ?>
+
+}
+?>
 </body>
 </html>
