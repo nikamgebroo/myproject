@@ -24,8 +24,8 @@ $products =$statement->fetchALL(PDO::FETCH_ASSOC);
 </div>
     <div class="checkboxes">
 
-        <?php foreach ($products as $i=> $product) { ?>
-           <form name="form1" action="" method="post">
+        <?php foreach ($products as $i=> $product){?>
+        <form name="form1" method="post">
             <div class="card">
                 <div class="card-body">
                     <input type="checkbox" name="num[]" class="other" value="<?php echo $product["id"]?>" />
@@ -35,8 +35,8 @@ $products =$statement->fetchALL(PDO::FETCH_ASSOC);
                     <h5><?php echo $product['attribute_value_id'] ?></h5>
                 </div>
             </div>
-
-        <?php } ?>
+            <?php }
+               ?>
         <div id="delete-product-btn">
             <input  type="submit" name="submit1" value="Mass Delete">
         </div>
@@ -44,8 +44,8 @@ $products =$statement->fetchALL(PDO::FETCH_ASSOC);
     </form>
 </div>
 <?php
-if(isset($_POST["submit1"])) {
-    $deleteProduct = ($_POST['num']);
+if(isset($_POST["submit1"])){
+    $deleteProduct = $_POST['num'];
     foreach ($deleteProduct as $id) {
 
         $sql = "DELETE FROM products_table WHERE id = ?";
