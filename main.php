@@ -37,7 +37,7 @@ $products =$statement->fetchALL(PDO::FETCH_ASSOC);
             </div>
             <?php }
                ?>
-        <div id="delete-product-btn">
+            <div id="delete-product-btn">
             <input  type="submit" name="submit1" value="Mass Delete">
         </div>
     </div>

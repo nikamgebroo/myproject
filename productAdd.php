@@ -1,3 +1,37 @@
+
+<?php
+$pdo = new PDO('mysql:host=localhost;port=3306;dbname=products', 'root', '');
+$pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+$errors = [];
+$SKU = '';
+$name = '';
+$price = '';
+$attribute_value_id = 1;
+if($_SERVER['REQUEST_METHOD'] ==='POST'){
+    var_dump($_POST);
+    $SKU =$_POST['SKU'];
+    $name =$_POST['name'];
+    $price =$_POST['price'];
+    $attribute_value_id =$_POST['attribute_value_id'];
+
+    if(!$price ){
+        $errors[]='product price is required';
+    }
+    if(true){
+        $statement = $pdo->prepare("INSERT INTO products_table(SKU,name,price,attribute_value_id)
+                    VALUES(:SKU, :name, :price, :attribute_value_id)");
+        $statement->bindValue(':SKU', $SKU);
+        $statement->bindValue(':name', $name);
+        $statement->bindValue(':price', $price);
+        $statement->bindValue(':attribute_value_id', $attribute_value_id);
+        $statement->execute();
+        header('location: main.php');
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +44,6 @@
     <div>
         <div class="productAddText">
             <h1>Product List</h1>
-            <div class ="mainProductAdd">
-                <input  type="submit" name="submitAdd" value="Save">
-            </div>
             <div id="cancelProductAdd">
                 <button> <a href="main.php">Cancel</a></button>
             </div>
@@ -21,16 +52,25 @@
 </div>
 
 <!--Product add form -->
-<form id="product_form">
-
-    <form action="/#">
+<form id="product_form" method="post" enctype="multipart/form-data">
         <div class="inputField">
+            <div class="form-group">
         <label for="SKU">SKU:</label>
-        <input type="text" id="SKU" name="SKU"><br><br>
+        <input type="text" id="SKU" name="SKU" value="<?php echo $SKU ?>"><br><br>
+            </div>
+            <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
+        <input type="text" id="name" name="name" value="<?php echo $name ?>"><br><br>
+            </div>
+            <div class="form-group">
         <label for="Price">Price ($):</label>
-        <input type="number" id="price" name="price"><br><br>
+        <input type="number" id="price" name="price" value="<?php echo $price ?>"><br><br>
+            </div>
+            <div class="form-group">
+                <label>attribute value id</label>
+                <input type="number" id="attribute_value_id" name="attribute_value_id" value="1" >
+            </div>
+                <button  type="submit" name="submitAdd" value="Save">Submit</button>
         </div>
 
         <!-- Switcher -->
@@ -85,7 +125,6 @@
                 });
             </script>
         </div>
-    </form>
 
     </form>
 
