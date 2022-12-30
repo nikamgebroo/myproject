@@ -11,7 +11,7 @@
         <div class="productAddText">
             <h1>Product List</h1>
             <div class ="mainProductAdd">
-                <button type=submit>Save</button>
+                <input  type="submit" name="submitAdd" value="Save">
             </div>
             <div id="cancelProductAdd">
                 <button> <a href="main.php">Cancel</a></button>
