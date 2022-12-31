@@ -8,19 +8,43 @@ $errors = [];
 $SKU = '';
 $name = '';
 $price = '';
-$attribute_value_id = 1;
+$attribute_value_id = '';
+$value = '';
+$type_id ='';
 if($_SERVER['REQUEST_METHOD'] ==='POST'){
     var_dump($_POST);
     $SKU =$_POST['SKU'];
     $name =$_POST['name'];
     $price =$_POST['price'];
-    $attribute_value_id =$_POST['attribute_value_id'];
-
+    $value =$_POST['value'];
+    if(isset($_POST['submitAdd'])){
+        if(!empty($_POST['productType'])) {
+            $selected = $_POST['productType'];
+            if($selected=="DVD"){
+                $type_id=2;
+            }
+        } else {
+            echo 'Please select the value.';
+        }
+    }
     if(!$price ){
         $errors[]='product price is required';
     }
     if(true){
-        $statement = $pdo->prepare("INSERT INTO products_table(SKU,name,price,attribute_value_id)
+        $statement = $pdo->prepare("INSERT INTO attribute_values(value,type_id)
+                    VALUES(:value, :type_id)");
+        $statement->bindValue(':value', $value);
+        $statement->bindValue(':type_id', $type_id);
+        $statement->execute();
+    }
+    if(true){
+        $st = $pdo->prepare('SELECT max(id) FROM attribute_values LIMIT 1');
+        $st->execute();
+        $attribute_value_id = $st->fetchColumn();
+    }
+    echo $attribute_value_id;
+    if(true){
+        $statement = $pdo->prepare("INSERT INTO products_table(SKU,name,price, attribute_value_id)
                     VALUES(:SKU, :name, :price, :attribute_value_id)");
         $statement->bindValue(':SKU', $SKU);
         $statement->bindValue(':name', $name);
@@ -53,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
 
 <!--Product add form -->
 <form id="product_form" method="post" enctype="multipart/form-data">
-        <div class="inputField">
+
             <div class="form-group">
         <label for="SKU">SKU:</label>
         <input type="text" id="SKU" name="SKU" value="<?php echo $SKU ?>"><br><br>
@@ -66,17 +90,10 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         <label for="Price">Price ($):</label>
         <input type="number" id="price" name="price" value="<?php echo $price ?>"><br><br>
             </div>
-            <div class="form-group">
-                <label>attribute value id</label>
-                <input type="number" id="attribute_value_id" name="attribute_value_id" value="1" >
-            </div>
-                <button  type="submit" name="submitAdd" value="Save">Submit</button>
-        </div>
+
 
         <!-- Switcher -->
-        <form class="productDescription">
             <label for="product" id="product">Type Switcher: </label>
-
             <select name="productType" id="productType">
                 <option value="Switcher">Type Switcher</option>
                 <option value="DVD">DVD</option>
@@ -84,19 +101,18 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
                 <option value="Furniture">Furniture</option>
             </select>
             <div class="switcherInfo">
-            <div id="DVD" style="display:none;">
-                <input type="number"  placeholder="#size"/>
+            <div id="DVD" style="display:none;" class="form-group">
+                <input type="number"  id="value" name="value"   placeholder="#size"/>
             </div>
-            <div id="Book" style="display:none;">
+            <div id="Book" style="display:none;" class="form-group">
                 <input type="number"  placeholder="#weight"/>
             </div>
-            <div id="Furniture" style="display:none;">
-                <input type="num"  placeholder="#height"/>
+            <div id="Furniture" style="display:none;" class="form-group">
+                <input type="number"  placeholder="#height"/>
                 <input type="number"  placeholder="#width"/>
                 <input type="number"  placeholder="#length"/>
             </div>
             </div>
-        </form>
         <div>
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
             <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
@@ -125,7 +141,7 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
                 });
             </script>
         </div>
-
+    <button  type="submit" name="submitAdd" value="Save">Submit</button>
     </form>
 
 
