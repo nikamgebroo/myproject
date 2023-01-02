@@ -23,6 +23,12 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
             if($selected=="DVD"){
                 $type_id=2;
             }
+            elseif($selected=="Book"){
+                $type_id=1;
+            }
+            elseif($selected=="Furniture"){
+                $type_id=3;
+            }
         } else {
             echo 'Please select the value.';
         }

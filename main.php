@@ -4,7 +4,7 @@ $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $statement = $pdo->prepare('SELECT * FROM products_table ORDER BY SKU DESC' );
 $statement->execute();
 $products =$statement->fetchALL(PDO::FETCH_ASSOC);
-
+$value='';
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +22,7 @@ $products =$statement->fetchALL(PDO::FETCH_ASSOC);
         <button><a href="productAdd.php">ADD</a></button>
     </div>
 </div>
+
     <div class="checkboxes">
         <?php foreach ($products as $i=> $product){?>
         <form name="form1" method="post">
@@ -31,7 +32,12 @@ $products =$statement->fetchALL(PDO::FETCH_ASSOC);
                     <h5><?php echo $product['SKU']?></h5>
                     <h5><?php echo $product['name'] ?></h5>
                     <h5><?php echo $product['price'] ?></h5>
-                    <h5><?php echo $product['attribute_value_id'] ?></h5>
+                    <h5><?php
+                        $st = $pdo->prepare('SELECT max(value) FROM attribute_values  ORDER BY ID DESC ');
+                        $st->execute();
+                        $value = $st->fetchColumn();
+                        echo $value;
+                         ?></h5>
                 </div>
             </div>
             <?php }
@@ -46,7 +52,7 @@ $products =$statement->fetchALL(PDO::FETCH_ASSOC);
 if(isset($_POST["submit1"])){
     $deleteProduct = $_POST['num'];
     foreach ($deleteProduct as $id) {
-        $sql = "DELETE FROM products_table WHERE id = ?";
+        $sql = "DELETE FROM attribute_values WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$id]);
         header('location: main.php');
