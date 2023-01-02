@@ -32,7 +32,9 @@ $value='';
                     <h5><?php echo $product['SKU']?></h5>
                     <h5><?php echo $product['name'] ?></h5>
                     <h5><?php echo $product['price'] . "$" ?></h5>
-                    <h5><?php echo $product['value']; ?></h5>
+                    <h5><?php
+                        if($product['type_id']==2){
+                        echo $product['value'] . "MB";} ?></h5>
                 </div>
             </div>
             <?php }
