@@ -15,7 +15,15 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
     $SKU =$_POST['SKU'];
     $name =$_POST['name'];
     $price =$_POST['price'];
-    $value =$_POST['value'];
+
+    if(!empty($_POST['valueBook'])){ $value =$_POST['valueBook'];}
+  elseif(!empty($_POST['valueDVD'])){ $value =$_POST['valueDVD'];}
+   elseif (isset($_POST['valueFurniture'])){
+       $dimensions = $_POST['valueFurniture'];
+       $value=$dimensions[0]. "x" . $dimensions[1] . "x" . $dimensions[2];
+
+   }
+
     if(isset($_POST['submitAdd'])){
         if(!empty($_POST['productType'])) {
             $selected = $_POST['productType'];
@@ -105,17 +113,18 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
                 <option value="Book">Book</option>
                 <option value="Furniture">Furniture</option>
             </select>
-            <div class="switcherInfo">
+            <div class="switcherInfo" >
             <div id="DVD" style="display:none;" class="form-group">
-                <input type="number"  name="value"   placeholder="#size"/>
+                <input type="number"  name="valueDVD"   placeholder="#size"/>
             </div>
             <div id="Book" style="display:none;" class="form-group">
-                <input type="number"    placeholder="#weight"/>
+                <input type="number" name="valueBook"   placeholder="#weight"/>
             </div>
             <div id="Furniture" style="display:none;" class="form-group">
-                <input type="number"   placeholder="#height"/>
-                <input type="number"  placeholder="#width"/>
-                <input type="number"  placeholder="#length"/>
+                <input type="number" name="valueFurniture[]" placeholder="#height"/>
+                <input type="number" name="valueFurniture[]" placeholder="#width"/>
+                <input type="number" name="valueFurniture[]" placeholder="#length"/>
+
             </div>
             </div>
         <div>

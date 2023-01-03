@@ -38,6 +38,9 @@ $value='';
                         if ($product['type_id']==1){
                             echo $product['value'] . "KG";
                         }
+                        if ($product['type_id']==3){
+                            echo "Dimensions: " . $product ['value'];
+                        }
                         ?></h5>
                 </div>
             </div>
