@@ -12,7 +12,6 @@ $attribute_value_id = '';
 $value = '';
 $type_id ='';
 if($_SERVER['REQUEST_METHOD'] ==='POST'){
-    var_dump($_POST);
     $SKU =$_POST['SKU'];
     $name =$_POST['name'];
     $price =$_POST['price'];
@@ -108,13 +107,13 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
             </select>
             <div class="switcherInfo">
             <div id="DVD" style="display:none;" class="form-group">
-                <input type="number"  id="value" name="value"   placeholder="#size"/>
+                <input type="number"  name="value"   placeholder="#size"/>
             </div>
             <div id="Book" style="display:none;" class="form-group">
-                <input type="number"  placeholder="#weight"/>
+                <input type="number"    placeholder="#weight"/>
             </div>
             <div id="Furniture" style="display:none;" class="form-group">
-                <input type="number"  placeholder="#height"/>
+                <input type="number"   placeholder="#height"/>
                 <input type="number"  placeholder="#width"/>
                 <input type="number"  placeholder="#length"/>
             </div>

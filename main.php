@@ -34,7 +34,11 @@ $value='';
                     <h5><?php echo $product['price'] . "$" ?></h5>
                     <h5><?php
                         if($product['type_id']==2){
-                        echo $product['value'] . "MB";} ?></h5>
+                        echo $product['value'] . "MB";}
+                        if ($product['type_id']==1){
+                            echo $product['value'] . "KG";
+                        }
+                        ?></h5>
                 </div>
             </div>
             <?php }
