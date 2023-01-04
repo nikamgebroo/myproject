@@ -1,4 +1,6 @@
-
+es kodi gadasaketebeli maq imito ro sityvaze eseni calke klasshi maq gasatani da raghaceebi magito ar miwvalia da kide erti tvinis satynavi damrcha su
+submitis ghilaki html- kodshi boloshi maq imito ro sxvanairad ar mushaobs da ideashi lokacia cancelis gverdit unda iyos da magas mivxedav
+sabas vanaxeb da metyvis mere rogor ra jobia
 <?php
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products', 'root', '');
 $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -16,25 +18,23 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
     $name =$_POST['name'];
     $price =$_POST['price'];
 
-    if(!empty($_POST['valueBook'])){ $value =$_POST['valueBook'];}
-  elseif(!empty($_POST['valueDVD'])){ $value =$_POST['valueDVD'];}
-   elseif (isset($_POST['valueFurniture'])){
-       $dimensions = $_POST['valueFurniture'];
-       $value=$dimensions[0]. "x" . $dimensions[1] . "x" . $dimensions[2];
-
-   }
-
     if(isset($_POST['submitAdd'])){
         if(!empty($_POST['productType'])) {
             $selected = $_POST['productType'];
             if($selected=="DVD"){
                 $type_id=2;
+                if(!empty($_POST['valueDVD'])){ $value =$_POST['valueDVD'];}
             }
             elseif($selected=="Book"){
                 $type_id=1;
+                if(!empty($_POST['valueBook'])){ $value =$_POST['valueBook'];}
             }
             elseif($selected=="Furniture"){
                 $type_id=3;
+                if (count($_POST['valueFurniture']) != 0) {
+                    $dimensions = $_POST['valueFurniture'];
+                    $value = $dimensions[0] . "x" . $dimensions[1] . "x" . $dimensions[2];
+                }
             }
         } else {
             echo 'Please select the value.';
@@ -50,12 +50,13 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         $statement->bindValue(':type_id', $type_id);
         $statement->execute();
     }
+
     if(true){
         $st = $pdo->prepare('SELECT max(id) FROM attribute_values LIMIT 1');
         $st->execute();
         $attribute_value_id = $st->fetchColumn();
     }
-    echo $attribute_value_id;
+
     if(true){
         $statement = $pdo->prepare("INSERT INTO products_table(SKU,name,price, attribute_value_id)
                     VALUES(:SKU, :name, :price, :attribute_value_id)");
@@ -83,6 +84,7 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
             <h1>Product List</h1>
             <div id="cancelProductAdd">
                 <button> <a href="main.php">Cancel</a></button>
+                <button  type="submit" form="product_form" name="submitAdd" value="Save">Submit</button>
             </div>
         </div>
     </div>
@@ -155,13 +157,6 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
                 });
             </script>
         </div>
-    <button  type="submit" name="submitAdd" value="Save">Submit</button>
     </form>
-
-
-
-
-
-
 </body>
 </html>

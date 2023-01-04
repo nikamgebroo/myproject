@@ -20,6 +20,10 @@ $value='';
 <h1>Product List</h1>
     <div class ="mainProductAdd">
         <button><a href="productAdd.php">ADD</a></button>
+        <div id="delete-product-btn">
+            <input  type="submit" form="form1" name="submit1" value="Mass Delete">
+        </div>
+    </div>
     </div>
 </div>
 
@@ -46,10 +50,6 @@ $value='';
             </div>
             <?php }
             ?>
-            <div id="delete-product-btn">
-            <input  type="submit" name="submit1" value="Mass Delete">
-        </div>
-    </div>
     </form>
 </div>
 <?php
