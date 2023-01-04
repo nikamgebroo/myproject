@@ -1,6 +1,4 @@
-es kodi gadasaketebeli maq imito ro sityvaze eseni calke klasshi maq gasatani da raghaceebi magito ar miwvalia da kide erti tvinis satynavi damrcha su
-submitis ghilaki html- kodshi boloshi maq imito ro sxvanairad ar mushaobs da ideashi lokacia cancelis gverdit unda iyos da magas mivxedav
-sabas vanaxeb da metyvis mere rogor ra jobia
+
 <?php
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products', 'root', '');
 $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
