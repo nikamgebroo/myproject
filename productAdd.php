@@ -80,7 +80,7 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
     <div>
         <div class="productAddText">
             <h1>Product List</h1>
-            <div id="cancelProductAdd">
+            <div id="ProductAddButtons">
                 <button> <a href="main.php">Cancel</a></button>
                 <button  type="submit" form="product_form" name="submitAdd" value="Save">Submit</button>
             </div>
