@@ -15,17 +15,19 @@ $value='';
     <title>Title</title>
 </head>
 <body>
-
 <div class="mainText">
 <h1>Product List</h1>
     <div class ="mainProductAdd">
         <button><a href="productAdd.php">ADD</a></button>
     </div>
+    <div id="delete-product-btn">
+        <button form="form1" type="submit" name="submit1">Mass delete</button>
+    </div>
 </div>
 
     <div class="checkboxes">
         <?php foreach ($products as $i=> $product){?>
-        <form name="form1" method="post">
+        <form id="form1" method="post">
             <div class="card">
                 <div class="card-body">
                     <input type="checkbox" name="num[]" class="other" value="<?php echo $product["attribute_value_id"]?>" />
@@ -44,14 +46,13 @@ $value='';
                         ?></h5>
                 </div>
             </div>
+        </form>
+    </div>
             <?php }
             ?>
-            <div id="delete-product-btn">
-            <input  type="submit" name="submit1" value="Mass Delete">
-        </div>
+
     </div>
-    </form>
-</div>
+
 <?php
 if(isset($_POST["submit1"])){
     $deleteProduct = $_POST['num'];
@@ -63,5 +64,6 @@ if(isset($_POST["submit1"])){
     }
 }
 ?>
+
 </body>
 </html>

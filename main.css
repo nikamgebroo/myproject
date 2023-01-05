@@ -8,18 +8,20 @@
 }
 .mainProductAdd{
     display: inline-block;
-    margin-left: 80%
+    margin-left: 80%;
+}
+.mainText a{
+    text-decoration: none;
+    color: black;
 }
 #delete-product-btn{
     display: inline-block;
     margin-left: 20px;
-}
-#delete-product-btn #delete_button{
-    color: blue;
+    color: black;
 }
 .mainText button{
 
-    color: white;
+    color: black;
     padding: 15px 10px;
     text-align: center;
     text-decoration: none;
