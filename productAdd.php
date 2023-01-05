@@ -115,12 +115,15 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
             </select>
             <div class="switcherInfo" >
             <div id="DVD" style="display:none;" class="form-group">
-                <input type="number"  name="valueDVD"   placeholder="#size"/>
+                <h5>Please write DVD size in MB:</h5>
+             <input type="number"  name="valueDVD"  placeholder="#size"/>
             </div>
             <div id="Book" style="display:none;" class="form-group">
+                <h5>Please write book weight in KG:</h5>
                 <input type="number" name="valueBook"   placeholder="#weight"/>
             </div>
             <div id="Furniture" style="display:none;" class="form-group">
+                <h5>Please provide dimensions in HxWxL format: </h5>
                 <input type="number" name="valueFurniture[]" placeholder="#height"/>
                 <input type="number" name="valueFurniture[]" placeholder="#width"/>
                 <input type="number" name="valueFurniture[]" placeholder="#length"/>
