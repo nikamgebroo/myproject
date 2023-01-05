@@ -8,7 +8,7 @@
 }
 .mainProductAdd{
     display: inline-block;
-    margin-left: 80%;
+    margin-left: 70%;
 }
 .mainText a{
     text-decoration: none;
@@ -37,7 +37,7 @@
     margin-left: 40px;
 }
 .checkboxes .delete-checkbox{
-    margin-left: 17rem;
+    margin-right: 15rem;
 }
 
 .checkboxes .card-body{
