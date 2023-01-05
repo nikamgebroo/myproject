@@ -15,13 +15,14 @@ $value='';
     <title>Title</title>
 </head>
 <body>
+<div></div>
 <div class="mainText">
 <h1>Product List</h1>
     <div class ="mainProductAdd">
         <button><a href="productAdd.php">ADD</a></button>
     </div>
-    <div id="delete-product-btn">
-        <button form="form1" type="submit" name="submit1">Mass delete</button>
+    <div class="delete">
+        <button  form="form1" type="submit" name="submit1" id="delete-product-btn" >Mass delete</button>
     </div>
 </div>
 
@@ -30,7 +31,7 @@ $value='';
         <form id="form1" method="post">
             <div class="card">
                 <div class="card-body">
-                    <input type="checkbox" name="num[]" class="other" value="<?php echo $product["attribute_value_id"]?>" />
+                    <input type="checkbox" name="num[]" class="delete-checkbox" value="<?php echo $product["attribute_value_id"]?>" />
                     <h5><?php echo $product['SKU']?></h5>
                     <h5><?php echo $product['name'] ?></h5>
                     <h5><?php echo $product['price'] . "$" ?></h5>
@@ -46,13 +47,11 @@ $value='';
                         ?></h5>
                 </div>
             </div>
-        </form>
-    </div>
             <?php }
             ?>
-
     </div>
-
+    </form>
+</div>
 <?php
 if(isset($_POST["submit1"])){
     $deleteProduct = $_POST['num'];
@@ -64,6 +63,5 @@ if(isset($_POST["submit1"])){
     }
 }
 ?>
-
 </body>
 </html>

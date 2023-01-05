@@ -14,7 +14,7 @@
     text-decoration: none;
     color: black;
 }
-#delete-product-btn{
+.delete{
     display: inline-block;
     margin-left: 20px;
     color: black;
@@ -43,3 +43,4 @@
 .checkboxes .card-body{
     text-align: center;
 }
+
