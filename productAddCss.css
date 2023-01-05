@@ -28,13 +28,13 @@
 .inputField{
     margin-top: 30px;
 }
-.inputField #SKU{
+#product_form #SKU{
     margin-left: 30px;
 }
-.inputField #name{
+#product_form #name{
     margin-left: 23px;
 }
-.inputField #price{
+#product_form #price{
     margin-left: 6px;
 }
 /*
@@ -55,5 +55,6 @@ Switcher
 }
 #product_form .switcherInfo input {
 
-    display: block;
+    display: inline-block;
 }
+
