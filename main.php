@@ -1,7 +1,7 @@
 <?php
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products', 'root', '');
 $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$statement = $pdo->prepare('SELECT * FROM products_table INNER JOIN attribute_values ON products_table.attribute_value_id=attribute_values.id  ORDER BY SKU DESC' );
+$statement = $pdo->prepare('SELECT * FROM products_table INNER JOIN attribute_values ON products_table.attribute_value_id=attribute_values.id INNER JOIN types_table ON attribute_values.type_id=types_table.id ORDER BY SKU DESC');
 $statement->execute();
 $products =$statement->fetchALL(PDO::FETCH_ASSOC);
 $value='';
@@ -34,17 +34,8 @@ $value='';
                     <input type="checkbox" name="num[]" class="delete-checkbox" value="<?php echo $product["attribute_value_id"]?>" />
                     <h5><?php echo $product['SKU']?></h5>
                     <h5><?php echo $product['name'] ?></h5>
-                    <h5><?php echo $product['price'] . "$" ?></h5>
-                    <h5><?php
-                        if($product['type_id']==2){
-                        echo $product['value'] . "MB";}
-                        if ($product['type_id']==1){
-                            echo $product['value'] . "KG";
-                        }
-                        if ($product['type_id']==3){
-                            echo "Dimensions: " . $product ['value'];
-                        }
-                        ?></h5>
+                    <h5><?php echo number_format($product['price'] , 2) . " $" ?></h5>
+                    <h5><?php echo $product['description'] . ": " . $product['value'] . " " . $product['measurements']; ?></h5>
                 </div>
             </div>
             <?php }
