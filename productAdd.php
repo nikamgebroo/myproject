@@ -48,10 +48,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $statement->bindValue(':value', $value);
         $statement->bindValue(':type_id', $type_id);
         $statement->execute();
-    }
 
+
+    }
+    $yle = $pdo->lastInsertId();
     if (true) {
-        $st = $pdo->prepare('SELECT max(id) FROM attribute_values LIMIT 1');
+        $st = $pdo->prepare("SELECT :id FROM attribute_values LIMIT 1");
+        $st->bindParam(":id", $yle);
         $st->execute();
         $attribute_value_id = $st->fetchColumn();
     }
@@ -104,7 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="Price">Price ($):</label>
         <input required type="number" id="price" name="price" value="<?php echo $price ?>"><br><br>
     </div>
-
 
     <!-- Switcher -->
     <label for="product" id="product">Type Switcher: </label>
