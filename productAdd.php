@@ -18,23 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submitAdd'])) {
         if (!empty($_POST['productType'])) {
             $selected = $_POST['productType'];
-            if ($selected == "DVD") {
-                $type_id = 2;
-                if (!empty($_POST['valueDVD'])) {
-                    $value = $_POST['valueDVD'];
-                }
-            } elseif ($selected == "Book") {
-                $type_id = 1;
-                if (!empty($_POST['valueBook'])) {
-                    $value = $_POST['valueBook'];
-                }
-            } elseif ($selected == "Furniture") {
-                $type_id = 3;
-                if (count($_POST['valueFurniture']) != 0) {
-                    $dimensions = $_POST['valueFurniture'];
-                    $value = $dimensions[0] . "x" . $dimensions[1] . "x" . $dimensions[2];
-                }
-            }
+            $st = $pdo->prepare("SELECT id FROM types_table WHERE type_name=:type_name LIMIT 1");
+            $st->bindParam(":type_name", $selected);
+            $st->execute();
+            $type_id = $st->fetchColumn();
+            $value = $_POST['value' . $selected];
         } else {
             echo 'Please select the value.';
         }
@@ -120,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div id="DVDDiv" style="display:none;" class="attribute-value">
             <h5> Please, provide size in MB:</h5>
             <label for="valueDVD">Size(MB):</label>
-            <input  type="number" name="valueDVD" placeholder="#size"/>
+            <input type="number" name="valueDVD" placeholder="#size"/>
         </div>
         <div id="BookDiv" style="display:none;" class="attribute-value">
             <h5>Please, provide weight in KG:</h5>
@@ -130,18 +118,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div id="FurnitureDiv" style="display:none;" class="attribute-value">
             <h5>Please, provide dimensions in HxWxL format in CM: </h5>
             <label for="valueFurniture">Height(CM):</label>
-            <input type="number" name="valueFurniture[]" placeholder="#height"/><br>
+            <input type="number" id="Height" placeholder="#height"/><br>
             <label for="valueFurniture">Width(CM) :</label>
-            <input type="number" name="valueFurniture[]" placeholder="#width"/><br>
+            <input type="number" id="Width" placeholder="#width"/><br>
             <label for="valueFurniture">Length(CM) :</label>
-            <input type="number" name="valueFurniture[]" placeholder="#length"/>
-
+            <input type="number" id="Length" placeholder="#length"/>
+            <input type="hidden" class="combine" id="combine" name="valueFurniture"/>
         </div>
     </div>
     <div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
         <script>
+            $(function () {
+                $('#Height, #Width, #Length').on('input', function () {
+                    $('#combine').val(
+                        $('#Height, #Width, #Length').map(function () {
+                            return $(this).val();
+                        }).get().join('x')
+                    );
+                });
+            });
             $('#productTypeId').on('change', function () {
                 let selectedId = $(this).children(":selected").attr("id");
                 $('.attribute-value').hide();
