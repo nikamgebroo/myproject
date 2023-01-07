@@ -57,4 +57,15 @@ Switcher
 
     display: inline-block;
 }
+footer{
+    margin-top: 40px;
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    margin-left: 5%;
+    width: 90%;
+    font-size: 25px;
+    border-top: 3px solid grey;
+    text-align: center;
+}
 
