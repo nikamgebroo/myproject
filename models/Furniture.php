@@ -1,6 +1,7 @@
 <?php
-include("AllProducts.php");
-class Furniture extends AllProducts
+include("Product.php");
+
+class Furniture extends Product
 {
-public string $dimensions;
+
 }

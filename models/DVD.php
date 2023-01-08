@@ -1,9 +1,8 @@
 <?php
 
-include("AllProducts.php");
-class DVD  extends AllProducts
-{
+include("Product.php");
 
-public float $size;
+class DVD extends Product
+{
 
 }

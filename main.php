@@ -1,13 +1,15 @@
 <?php
 require_once "dataBase.php";
 require_once "views/layouts/Header.php";
+require_once "repository/ProductRepository.php";
+$productRepository = new ProductRepository();
 ?>
 <style>
     <?php    require_once "public/main.css"; ?>
 </style>
 
     <div class="checkboxes">
-        <?php foreach ($products as $i=> $product){?>
+        <?php foreach ($productRepository->findAllProducts() as $i=> $product){?>
         <form id="form1" method="post">
             <div class="card">
                 <div class="card-body">
