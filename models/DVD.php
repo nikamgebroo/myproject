@@ -1,6 +1,6 @@
 <?php
 
-include ("AllProducts.php");
+include("AllProducts.php");
 class DVD  extends AllProducts
 {
 

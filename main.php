@@ -1,8 +1,10 @@
 <?php
-require_once "ProductController.php";
+require_once "dataBase.php";
+require_once "views/layouts/Header.php";
 ?>
-
-<?php require_once "Header.php" ?>
+<style>
+    <?php    require_once "public/main.css"; ?>
+</style>
 
     <div class="checkboxes">
         <?php foreach ($products as $i=> $product){?>
@@ -24,5 +26,5 @@ require_once "ProductController.php";
 <?php
 
 ?>
-<?php require_once "Footer.php"?>
+<?php require_once "views/layouts/Footer.php" ?>
 

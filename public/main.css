@@ -1,3 +1,12 @@
+html, body{
+    height: 90%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+}
 .mainText{
     margin-top: 10px;
     margin-left: 10px;
@@ -43,16 +52,22 @@
 .checkboxes .card-body{
     text-align: center;
 }
-
-footer{
-    margin-top: 40px;
-    position: relative;
-    bottom: 0;
-    height: 100px;
+.push{
+    height: 142px;
+}
+.footer{
+    height: 142px;
     margin-left: 5%;
+    margin-top: 40px;
     width: 90%;
     font-size: 25px;
     border-top: 3px solid grey;
     text-align: center;
+}
+/*footer{
+
+    position: relative;
+    bottom: 0;
+
 
 }
