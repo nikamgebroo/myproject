@@ -1,4 +1,7 @@
 <?php
+require_once "models/Book.php";
+require_once "models/DVD.php";
+require_once "models/Furniture.php";
 
 class ProductRepository
 {
@@ -10,12 +13,42 @@ class ProductRepository
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function findAllProducts()
+    public function findAllProducts(): array
     {
         $products = [];
         $books = $this->findAllByTypeName('Book');
         foreach ($books as $value) {
-            array_push($products, new Book($value . sku … .));}
+            $products[] = new Book(
+                $value['SKU'],
+                $value['name'],
+                $value['price'],
+                $value['value'],
+                $value['measurements'],
+                $value['description']
+            );
+        }
+        $dvd = $this->findAllByTypeName('DVD');
+        foreach ($dvd as $value) {
+            $products[] = new DVD(
+                $value['SKU'],
+                $value['name'],
+                $value['price'],
+                $value['value'],
+                $value['measurements'],
+                $value['description']
+            );
+        }
+        $furniture = $this->findAllByTypeName('Furniture');
+        foreach ($furniture as $value) {
+            $products[] = new Furniture(
+                $value['SKU'],
+                $value['name'],
+                $value['price'],
+                $value['value'],
+                $value['measurements'],
+                $value['description']
+            );
+        }
         return $products;
 
     }

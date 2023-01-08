@@ -5,7 +5,7 @@ abstract class Product
     private string $sku;
     private string $name;
     private float $price;
-    private int $attribute_value_id;
+    private string $attribute_value;
     private string $measurement;
     private string $description;
 
@@ -58,19 +58,19 @@ abstract class Product
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getAttributeValueId(): int
+    public function getAttributeValue(): string
     {
-        return $this->attribute_value_id;
+        return $this->attribute_value;
     }
 
     /**
-     * @param int $attribute_value_id
+     * @param string $attribute_value
      */
-    public function setAttributeValueId(int $attribute_value_id): void
+    public function setAttributeValue(string $attribute_value): void
     {
-        $this->attribute_value_id = $attribute_value_id;
+        $this->attribute_value = $attribute_value;
     }
 
     /**
