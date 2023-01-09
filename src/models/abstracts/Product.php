@@ -1,5 +1,5 @@
 <?php
-namespace scandi;
+namespace scandi\src\models\abstracts;
 abstract class Product
 {
     private string $sku;

@@ -1,6 +1,6 @@
 <?php
-namespace scandi;
-
+namespace scandi\src\models;
+use scandi\src\models\abstracts\Product;
 class DVD extends Product
 {
     public function __construct($sku, $name, $price, $attribute_value, $measurement, $description)

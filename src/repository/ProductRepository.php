@@ -1,7 +1,9 @@
 <?php
 
-namespace scandi;
-
+namespace scandi\src\repository;
+use scandi\src\models\Book;
+use scandi\src\models\DVD;
+use scandi\src\models\Furniture;
 use PDO;
 
 class ProductRepository

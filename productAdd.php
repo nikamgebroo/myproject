@@ -1,5 +1,5 @@
 <?php
-require_once "dataBase.php";
+namespace scandi;
 
 
 ?>

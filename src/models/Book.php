@@ -1,5 +1,6 @@
 <?php
-namespace scandi;
+namespace scandi\src\models;
+use scandi\src\models\abstracts\Product;
 
 class Book extends Product
 {
