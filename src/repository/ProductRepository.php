@@ -1,7 +1,8 @@
 <?php
-require_once "models/Book.php";
-require_once "models/DVD.php";
-require_once "models/Furniture.php";
+
+namespace scandi;
+
+use PDO;
 
 class ProductRepository
 {

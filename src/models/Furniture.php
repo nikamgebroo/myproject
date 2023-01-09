@@ -1,8 +1,7 @@
 <?php
+namespace scandi;
 
-include("Product.php");
-
-class DVD extends Product
+class Furniture extends Product
 {
     public function __construct($sku, $name, $price, $attribute_value, $measurement, $description)
     {

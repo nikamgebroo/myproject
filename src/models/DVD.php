@@ -1,9 +1,8 @@
 <?php
-include("Product.php");
+namespace scandi;
 
-class Book extends Product
+class DVD extends Product
 {
-
     public function __construct($sku, $name, $price, $attribute_value, $measurement, $description)
     {
         $this->setName($name);

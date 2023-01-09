@@ -1,8 +1,9 @@
 <?php
-include("Product.php");
+namespace scandi;
 
-class Furniture extends Product
+class Book extends Product
 {
+
     public function __construct($sku, $name, $price, $attribute_value, $measurement, $description)
     {
         $this->setName($name);

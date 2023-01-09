@@ -1,7 +1,10 @@
 <?php
+
+use scandi\ProductRepository;
+require_once "src/repository/ProductRepository.php";
+require __DIR__ . '/vendor/autoload.php';
 require_once "dataBase.php";
 require_once "views/layouts/Header.php";
-require_once "repository/ProductRepository.php";
 $productRepository = new ProductRepository();
 ?>
 <style>
