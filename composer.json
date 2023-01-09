@@ -1,0 +1,17 @@
+{
+    "name": "nikam/myproject",
+    "autoload": {
+        "psr-4": {
+            "scandi\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "nikamgebroo",
+            "email": "nmghe2020@agruni.edu.ge"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*"
+    }
+}
