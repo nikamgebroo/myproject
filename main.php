@@ -3,24 +3,19 @@
 namespace scandi;
 require_once __DIR__ . '/vendor/autoload.php';
 
-use scandi\src\repository\ProductRepository;
+use scandi\src\controllers\ProductController;
 
 require_once "views/layouts/Header.php";
 
-$productRepository = new ProductRepository();
-if (isset($_POST["submit1"])) {
-    $productIds = $_POST['num'];
-    $productRepository->deleteProducts($productIds);
-    header('location: main.php');
-}
+$controller = new ProductController();
 ?>
 <style>
     <?php require "public/main.css"; ?>
 </style>
 
 <div class="checkboxes">
-    <?php foreach ($productRepository->findAllProducts() as $product){ ?>
-    <form id="form1" method="post">
+    <?php foreach ($controller->findAllProducts() as $product){ ?>
+    <form id="form1" method="post" action="<?php $controller->deleteProducts(); ?>">
         <div class="card">
             <div class="card-body">
                 <input type="checkbox" name="num[]" class="delete-checkbox" value="<?php echo $product->getId() ?>"/>
