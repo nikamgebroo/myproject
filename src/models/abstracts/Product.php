@@ -2,12 +2,21 @@
 namespace scandi\src\models\abstracts;
 abstract class Product
 {
+    protected ?int $id;
     private string $sku;
     private string $name;
     private float $price;
     private string $attribute_value;
     private string $measurement;
     private string $description;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
     /**
      * @return string

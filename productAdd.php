@@ -1,28 +1,56 @@
 <?php
 namespace scandi;
+require_once __DIR__ . '/vendor/autoload.php';
+use scandi\src\models\Book;
+use scandi\src\models\DVD;
+use scandi\src\models\Furniture;
+use scandi\src\repository\ProductRepository;
 
+$repository = new ProductRepository();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $sku = $_POST['SKU'];
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $selected = $_POST['productType'];
+    $value = $_POST['value' . $selected];
+    if (isset($_POST['submitAdd'])) {
+        if (!empty($selected)) {
+            switch ($selected) {
+                case 'Book':
+                    $repository->addProduct(new Book($sku, $name, $price, $value), $selected);
+                    break;
+                case 'DVD':
+                    $repository->addProduct(new DVD($sku, $name, $price, $value), $selected);
+                    break;
+                case 'Furniture':
+                    $repository->addProduct(new Furniture($sku, $name, $price, $value), $selected);
+                    break;
+            }
+            header('location: main.php');
+        }
+    }
+}
 ?>
 <?php require_once "views/layouts/productAddHeader.php" ?>
 <style>
     <?php require_once "public/productAddCss.css" ?>
 </style>
 
-<?php  ?>
 <!--Product add form -->
 <form id="product_form" method="post" enctype="multipart/form-data">
 
     <div class="form-group">
         <label for="SKU">SKU:</label>
-        <input required type="text" id="SKU" name="SKU" value="<?php echo $SKU ?>"><br><br>
+        <input required type="text" id="SKU" name="SKU"><br><br>
     </div>
     <div class="form-group">
         <label for="name">Name:</label>
-        <input required type="text" id="name" name="name" value="<?php echo $name ?>"><br><br>
+        <input required type="text" id="name" name="name" ><br><br>
     </div>
     <div class="form-group">
         <label for="Price">Price ($):</label>
-        <input required type="number" id="price" name="price" value="<?php echo $price ?>"><br><br>
+        <input required type="number" id="price" name="price" ><br><br>
     </div>
 
     <!-- Switcher -->
