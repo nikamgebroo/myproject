@@ -12,19 +12,22 @@ $controller = new ProductController();
 </style>
 
 <!--Product add form -->
-<form id="product_form" method="post" action="<?php $controller->addProduct(); ?>" enctype="multipart/form-data">
 
+<form id="product_form" method="post" action="<?php $controller->addProduct(); ?>" enctype="multipart/form-data">
+    <?php foreach ($controller->getErrors() as $error) { ?>
+        <p style="color:red"><?php echo $error?></p>
+    <?php } ?>
     <div class="form-group">
         <label for="SKU">SKU:</label>
-        <input required type="text" id="SKU" name="SKU"><br><br>
+        <input  type="text" id="SKU" name="SKU"><br><br>
     </div>
     <div class="form-group">
         <label for="name">Name:</label>
-        <input required type="text" id="name" name="name"><br><br>
+        <input  type="text" id="name" name="name"><br><br>
     </div>
     <div class="form-group">
         <label for="Price">Price ($):</label>
-        <input required type="number" id="price" name="price"><br><br>
+        <input  type="number" id="price" name="price"><br><br>
     </div>
 
     <!-- Switcher -->

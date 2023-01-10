@@ -12,7 +12,7 @@
         <div class="productAddText">
             <h1>Product List</h1>
             <div id="ProductAddButtons">
-                <button><a href="../../main.php">Cancel</a></button>
+                <button><a href="../main.php">Cancel</a></button>
                 <button type="submit" form="product_form" name="submitAdd" value="Save">Submit</button>
             </div>
         </div>

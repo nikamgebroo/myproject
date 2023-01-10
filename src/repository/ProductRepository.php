@@ -18,6 +18,15 @@ class ProductRepository
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
+    public function exists($sku)
+    {
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM products_table WHERE SKU = :sku");
+        $stmt->bindParam(':sku', $sku);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+        return $count > 0;
+    }
+
     public function deleteProducts(array $productIds)
     {
         foreach ($productIds as $id) {
