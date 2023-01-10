@@ -8,7 +8,7 @@ $controller = new ProductController();
 ?>
 <?php require_once "views/layouts/productAddHeader.php" ?>
 <style>
-    <?php require_once "public/productAddCss.css" ?>
+    <?php require_once "./public/productAddCss.css" ?>
 </style>
 
 <!--Product add form -->

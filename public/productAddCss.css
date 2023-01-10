@@ -37,6 +37,9 @@
 #product_form #price{
     margin-left: 6px;
 }
+#product_form{
+    margin-top: 10px;
+}
 /*
 Switcher
  */
@@ -57,7 +60,7 @@ Switcher
 
     display: inline-block;
 }
-footer{
+.footer{
     margin-top: 40px;
     position: absolute;
     bottom: 0;
