@@ -81,15 +81,16 @@ class ProductController
         return $this->errors;
     }
 
-    private function validate($field, $isNumeric)
+    private function validate($field, $isNumeric): void
     {
         if ($field == null) {
-            throw new Exception("Please, submit required data");
+            throw new Exception("Please, submit required data :" );
         }
         if ($isNumeric && !is_numeric($field)) {
             throw new Exception("Please, provide the data of indicated type");
         }
     }
+
     private function validateSku($sku)
     {
         if ($this->productRepository->exists($sku)) {
