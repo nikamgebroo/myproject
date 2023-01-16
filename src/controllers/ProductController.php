@@ -39,19 +39,18 @@ class ProductController
                         $this->validateSku($sku);
                         $this->validate($name, false);
                         $this->validate($price, true);
-                        $this->validate($selected, false);
+
+                        $this->validateSelection($selected);
                         $value = $_POST['value' . $selected];
+                        $this->validate($value, false);
                         switch ($selected) {
                             case 'Book':
-                                $this->validate($value, true);
                                 $this->productRepository->addProduct(new Book($sku, $name, $price, $value), $selected);
                                 break;
                             case 'DVD':
-                                $this->validate($value, true);
                                 $this->productRepository->addProduct(new DVD($sku, $name, $price, $value), $selected);
                                 break;
                             case 'Furniture':
-                                $this->validate($value, false);
                                 $this->productRepository->addProduct(new Furniture($sku, $name, $price, $value), $selected);
                                 break;
                         }
@@ -81,17 +80,33 @@ class ProductController
         return $this->errors;
     }
 
+    /**
+     * @throws Exception
+     */
     private function validate($field, $isNumeric): void
     {
         if ($field == null) {
-            throw new Exception("Please, submit required data :" );
+            throw new Exception("Please, submit required data");
         }
         if ($isNumeric && !is_numeric($field)) {
             throw new Exception("Please, provide the data of indicated type");
         }
     }
 
-    private function validateSku($sku)
+    /**
+     * @throws Exception
+     */
+    private function validateSelection($field): void
+    {
+        if (!in_array($field, array('Book', 'DVD', 'Furniture'))) {
+            throw new Exception("Please, submit required data");
+        }
+    }
+
+    /**
+     * @throws Exception
+     */
+    private function validateSku($sku): void
     {
         if ($this->productRepository->exists($sku)) {
             throw new Exception("The product with the same SKU already exists");

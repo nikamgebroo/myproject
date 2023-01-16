@@ -1,54 +1,66 @@
-#productAddMain{
+#productAddMain {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
     border-bottom: 3px solid grey;
 }
+
 .productAddText h1 {
     display: inline-block;
 }
-#ProductAddButtons{
+
+#ProductAddButtons {
     display: inline-block;
     margin-left: 68%;
 }
-#ProductAddButtons a{
+
+#ProductAddButtons a {
     text-decoration: none;
     color: black;
 }
+
 #ProductAddButtons button[name="submitAdd"] {
-   margin-left: 30px;
+    margin-left: 30px;
 }
-#productAddMain button{
+
+#productAddMain button {
 
     padding: 15px 10px;
     text-align: center;
     text-decoration: none;
 
 }
-.inputField{
+
+.inputField {
     margin-top: 30px;
 }
-#product_form #SKU{
+
+#product_form #SKU {
     margin-left: 30px;
 }
-#product_form #name{
+
+#product_form #name {
     margin-left: 23px;
 }
-#product_form #price{
+
+#product_form #price {
     margin-left: 6px;
 }
-#product_form{
+
+#product_form {
     margin-top: 10px;
 }
+
 /*
 Switcher
  */
 
 
-#product_form  #productType{
+#product_form #productType {
     margin-top: 30px;
 }
-#product_form .switcherInfo{
+
+#product_form .switcherInfo {
     margin-top: 30px;
     background-color: lightgray;
     text-decoration-color: cornflowerblue;
@@ -56,11 +68,13 @@ Switcher
     height: 150px;
     display: block;
 }
+
 #product_form .switcherInfo input {
 
     display: inline-block;
 }
-.footer{
+
+.footer {
     margin-top: 40px;
     position: absolute;
     bottom: 0;
@@ -70,5 +84,9 @@ Switcher
     font-size: 25px;
     border-top: 3px solid grey;
     text-align: center;
+}
+
+.error {
+    color: red;
 }
 
