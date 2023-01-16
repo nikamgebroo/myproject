@@ -1,34 +1,34 @@
-html, body{
+html, body {
     height: 90%;
 }
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
-}
-.mainText{
+
+.mainText {
     margin-top: 10px;
     margin-left: 10px;
     border-bottom: 3px solid grey;
 }
+
 .mainText h1 {
     display: inline-block;
 }
-.mainProductAdd{
+
+.mainProductAdd {
     display: inline-block;
     margin-left: 70%;
 }
-.mainText a{
+
+.mainText a {
     text-decoration: none;
     color: black;
 }
-.delete{
+
+.delete {
     display: inline-block;
     margin-left: 20px;
     color: black;
 }
-.mainText button{
+
+.mainText button {
 
     color: black;
     padding: 15px 10px;
@@ -36,7 +36,8 @@ html, body{
     text-decoration: none;
 
 }
-.checkboxes .card{
+
+.checkboxes .card {
     width: 18rem;
     display: inline-block;
     border: 2px;
@@ -45,29 +46,24 @@ html, body{
     margin-top: 30px;
     margin-left: 40px;
 }
-.checkboxes .delete-checkbox{
+
+.checkboxes {
+    min-height: 100%
+}
+
+.checkboxes .delete-checkbox {
     margin-right: 15rem;
 }
 
-.checkboxes .card-body{
+.checkboxes .card-body {
     text-align: center;
 }
-.push{
-    height: 142px;
-}
-.footer{
-    height: 142px;
+
+.footer {
     margin-left: 5%;
-    margin-top: 40px;
+    margin-top: 10pt;
     width: 90%;
     font-size: 25px;
     border-top: 3px solid grey;
     text-align: center;
-}
-/*footer{
-
-    position: relative;
-    bottom: 0;
-
-
 }
