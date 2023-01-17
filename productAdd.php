@@ -124,11 +124,26 @@ $controller = new ProductController();
                         },
                         name: "Please enter name",
                         productType: "Please select product type",
-                        valueDVD: "Please enter size",
-                        valueBook: "Please enter weight",
-                        valueHeight: "Please enter height",
-                        valueWidth: "Please enter width",
-                        valueLength: "Please enter length"
+                        valueDVD: {
+                            required: "Please enter size",
+                            digits: "Please enter digits"
+                        },
+                        valueBook: {
+                            required: "Please enter weight",
+                            digits: "Please enter digits"
+                        },
+                        valueHeight: {
+                            required: "Please enter height",
+                            digits: "Please enter digits"
+                        },
+                        valueWidth: {
+                            required: "Please enter width",
+                            digits: "Please enter digits"
+                        },
+                        valueLength: {
+                            required: "Please enter length",
+                            digits: "Please enter digits"
+                        },
                     },
                     submitHandler: function (form) {
                         form.action();
