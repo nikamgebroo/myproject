@@ -14,14 +14,14 @@ class ProductRepository
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:host=localhost;port=3306;dbname=products', 'root', '');
+        $this->pdo = new PDO('mysql:host=localhost;port=3306;dbname=id20153836_products', 'id20153836_root', 'Poweredbyoppa13@');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
     public function exists($sku)
     {
-        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM products_table WHERE SKU = :sku");
-        $stmt->bindParam(':sku', $sku);
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM products_table WHERE SKU = :SKU");
+        $stmt->bindParam(':SKU', $sku);
         $stmt->execute();
         $count = $stmt->fetchColumn();
         return $count > 0;

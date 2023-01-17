@@ -9,10 +9,10 @@
     <div class="mainText">
         <h1>Product List</h1>
         <div class="mainProductAdd">
-            <button onclick="location.href='../../myproject/productAdd.php'">ADD</button>
+            <button onclick="location.href='../productAdd.php'">ADD</button>
         </div>
         <div class="delete">
-            <button form="form1" type="submit" name="submit1" id="delete-product-btn">Mass delete</button>
+            <button form="form1" type="submit" name="submit1" id="delete-product-btn">MASS DELETE</button>
         </div>
     </div>
 </div>

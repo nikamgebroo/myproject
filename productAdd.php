@@ -19,8 +19,8 @@ $controller = new ProductController();
         <p style="color:red"><?php echo $error ?></p>
     <?php } ?>
     <div class="form-group">
-        <label for="SKU">SKU:</label>
-        <input type="text" id="SKU" name="SKU"><br><br>
+        <label for="sku">SKU:</label>
+        <input type="text" id="sku" name="sku"><br><br>
     </div>
     <div class="form-group">
         <label for="name">Name:</label>
@@ -33,7 +33,7 @@ $controller = new ProductController();
 
     <!-- Switcher -->
     <label for="product" id="product">Type Switcher: </label>
-    <select name="productType" id="productTypeId">
+    <select name="productType" id="productType">
         <option id="Switcher" value="">Type Switcher</option>
         <option id="DVD">DVD</option>
         <option id="Book">Book</option>
@@ -43,49 +43,49 @@ $controller = new ProductController();
         <div id="DVDDiv" style="display:none;" class="attribute-value">
             <h5> Please, provide size in MB:</h5>
             <label for="valueDVD">Size(MB):</label>
-            <input type="text" id="DVD" name="valueDVD" placeholder="#size"/>
+            <input type="text" id="size" name="valueDVD" placeholder="#size"/>
         </div>
         <div id="BookDiv" style="display:none;" class="attribute-value">
             <h5>Please, provide weight in KG:</h5>
             <label for="valueBook">Weight(KG):</label>
-            <input type="text" id="Book" name="valueBook" placeholder="#weight"/>
+            <input type="text" id="weight" name="valueBook" placeholder="#weight"/>
         </div>
         <div id="FurnitureDiv" style="display:none;" class="attribute-value">
             <h5>Please, provide dimensions in HxWxL format in CM: </h5>
             <label for="valueFurniture">Height(CM):</label>
-            <input type="text" id="Height" name="valueHeight" placeholder="#height"/><br>
+            <input type="text" id="height" name="valueHeight" placeholder="#height"/><br>
             <label for="valueFurniture">Width(CM) :</label>
-            <input type="text" id="Width" name="valueWidth" placeholder="#width"/><br>
+            <input type="text" id="width" name="valueWidth" placeholder="#width"/><br>
             <label for="valueFurniture">Length(CM) :</label>
-            <input type="text" id="Length" name="valueLength" placeholder="#length"/>
+            <input type="text" id="length" name="valueLength" placeholder="#length"/>
             <input type="hidden" class="combine" id="combine" name="valueFurniture"/>
         </div>
     </div>
     <div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
         <script>
             $(function () {
-                $('#Height, #Width, #Length').on('input', function () {
+                $('#height, #width, #length').on('input', function () {
                     $('#combine').val(
-                        $('#Height, #Width, #Length').map(function () {
+                        $('#height, #width, #length').map(function () {
                             return $(this).val();
                         }).get().join('x')
                     );
                 });
             });
-            $('#productTypeId').on('change', function () {
+            $('#productType').on('change', function () {
                 let selectedId = $(this).children(":selected").attr("id");
                 $('.attribute-value').hide();
                 $("#" + selectedId + "Div").show();
             });
 
             $(function () {
-                let productType = $('#productTypeId');
+                let productType = $('#productType');
                 $('#product_form').validate({
                     rules: {
-                        SKU: "required",
+                        sku: "required",
                         price: {
                             required: true,
                             number: true
@@ -117,7 +117,7 @@ $controller = new ProductController();
                         }
                     },
                     messages: {
-                        SKU: "Please enter SKU",
+                        sku: "Please enter SKU",
                         price: {
                             required: "Please enter price",
                             number: "Please enter numbers"

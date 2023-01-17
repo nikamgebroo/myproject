@@ -28,7 +28,7 @@ class ProductController
     {
         $this->errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $sku = $_POST['SKU'];
+            $sku = $_POST['sku'];
             $name = $_POST['name'];
             $price = $_POST['price'];
             $selected = $_POST['productType'];
@@ -54,7 +54,8 @@ class ProductController
                                 $this->productRepository->addProduct(new Furniture($sku, $name, $price, $value), $selected);
                                 break;
                         }
-                        header('location: main.php');
+                        header('location: index.php');
+                        exit();
                     } catch (Exception $e) {
                         $this->errors[] = $e->getMessage();
                     }
@@ -68,7 +69,8 @@ class ProductController
         if (isset($_POST["submit1"])) {
             $productIds = $_POST['num'];
             $this->productRepository->deleteProducts($productIds);
-            header('location: main.php');
+            header('location: index.php');
+            exit();
         }
     }
 
